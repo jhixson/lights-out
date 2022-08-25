@@ -1,8 +1,9 @@
 <div class="max-w-lg mx-auto">
   <div class="grid grid-rows-5 grid-cols-5 gap-2">
     <%= for {{x, y}, _value} <- @grid do %>
-      <%# <button class={toggleClass(@grid, x, y)} phx-click="toggle" phx-value-x={x} phx-value-y={y}></button> %>
       <.live_component module={LightsOutWeb.Light} id={"#{x}-#{y}"} x={x} y={y} on={@grid[{x, y}]} />
     <% end %>
   </div>
 </div>
+
+<div id="confetti" phx-hook="Confetti" data-win={"#{@win}"}></div>
